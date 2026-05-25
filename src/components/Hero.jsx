@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import heroCutout from "../assets/arshmeet-professional-hero-cutout.png";
+import heroCutoutPng from "../assets/arshmeet-professional-hero-cutout.png";
+import heroCutoutWebp from "../assets/arshmeet-professional-hero-cutout.webp";
 import LuxuryButton from "./LuxuryButton.jsx";
 
 export default function Hero() {
@@ -10,6 +11,7 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden bg-cream px-2 py-2 text-ink">
+      <link rel="preload" as="image" href={heroCutoutWebp} type="image/webp" fetchPriority="high" />
       <div className="grain" />
       <div className="relative min-h-[calc(100vh-16px)] overflow-hidden rounded-[18px] border-[5px] border-ink bg-cream shadow-[0_24px_70px_rgba(59,43,40,0.2)]">
         <motion.div
@@ -107,11 +109,19 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
           transition={{ duration: 1.15, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
         >
-          <img
-            src={heroCutout}
-            alt="Generated editorial portrait cutout of Arshmeet"
-            className="max-h-full w-auto max-w-[118%] scale-[1.08] object-contain object-bottom drop-shadow-[0_26px_38px_rgba(59,43,40,0.22)] md:max-w-[132%] md:scale-[1.15] lg:max-w-[138%] lg:scale-[1.2]"
-          />
+          <picture className="contents">
+            <source srcSet={heroCutoutWebp} type="image/webp" />
+            <img
+              src={heroCutoutPng}
+              alt="Generated editorial portrait cutout of Arshmeet"
+              width="1023"
+              height="1537"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              className="max-h-full w-auto max-w-[118%] scale-[1.08] object-contain object-bottom drop-shadow-[0_26px_38px_rgba(59,43,40,0.22)] md:max-w-[132%] md:scale-[1.15] lg:max-w-[138%] lg:scale-[1.2]"
+            />
+          </picture>
         </motion.div>
 
         <motion.div
