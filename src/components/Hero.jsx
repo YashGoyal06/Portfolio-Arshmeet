@@ -1,144 +1,79 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import heroCutoutPng from "../assets/arshmeet-professional-hero-cutout.png";
 import heroCutoutWebp from "../assets/arshmeet-professional-hero-cutout.webp";
-import LuxuryButton from "./LuxuryButton.jsx";
 
 export default function Hero() {
   const { scrollY } = useScroll();
-  const portraitY = useTransform(scrollY, [0, 800], [0, 42]);
-  const titleY = useTransform(scrollY, [0, 800], [0, -24]);
-  const titleScale = useTransform(scrollY, [0, 800], [1, 1.035]);
+  
+  // Parallax subtle translations
+  const imageY = useTransform(scrollY, [0, 800], [0, 50]);
+  const textY = useTransform(scrollY, [0, 800], [0, -30]);
 
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden bg-cream px-2 py-2 text-ink">
-      <link rel="preload" as="image" href={heroCutoutWebp} type="image/webp" fetchPriority="high" />
-      <div className="grain" />
-      <div className="relative min-h-[calc(100vh-16px)] overflow-hidden rounded-[18px] border-[5px] border-ink bg-cream shadow-[0_24px_70px_rgba(59,43,40,0.2)]">
-        <motion.div
-          className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_22%,rgba(217,199,184,0.42),transparent_28%),linear-gradient(110deg,transparent_0%,rgba(246,240,232,0.32)_45%,transparent_68%)]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.4, ease: "easeOut" }}
-        />
-        <div className="cinematic-sweep absolute inset-y-0 -left-1/2 z-[1] w-1/2 rotate-12 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-        <motion.h1
-          style={{ y: titleY, scale: titleScale }}
-          className="absolute inset-x-0 top-[18%] z-0 mx-auto max-w-[1280px] px-5 text-center font-display text-[clamp(3rem,14vw,6.4rem)] font-bold uppercase leading-none text-red/95 md:top-[11%] md:px-10 md:text-[clamp(5.8rem,11vw,12.6rem)]"
-          initial={{ opacity: 0, y: -18, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 1.1, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <span className="relative inline-block pl-[0.08em] tracking-[0.075em]">
-            <motion.span
-              className="pinyon-script-regular absolute left-[0.14em] top-[-0.38em] z-10 text-[0.18em] normal-case tracking-normal text-brown/90 md:text-[0.2em]"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
-            >
-              Meet
-            </motion.span>
-            Arshmeet
-          </span>
-        </motion.h1>
+    <section 
+      id="home" 
+      className="relative min-h-screen overflow-hidden bg-[#4A1812] px-6 text-cream flex items-end justify-center"
+      style={{
+        backgroundImage: "linear-gradient(to right, rgba(0,0,0,0.15) 1px, transparent 1px)",
+        backgroundSize: "80px 100%"
+      }}
+    >
+      <div className="grain opacity-20" />
 
-        <motion.div
-          className="absolute left-[6%] top-[37%] z-10 hidden w-[250px] text-left text-brown lg:block xl:left-[8.5%]"
-          initial={{ opacity: 0, x: -34, y: 12 }}
-          animate={{ opacity: 1, x: 0, y: 0 }}
-          transition={{ duration: 1, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <p className="mb-5 text-[8px] font-bold uppercase tracking-[0.34em] text-red">Brand Identity</p>
-          <p className="font-serif text-[1.65rem] font-medium uppercase leading-[0.96] tracking-[0.065em] xl:text-[2.15rem]">
-            Graphic
-            <span className="block">Designer</span>
-            <span className="block">For</span>
-            <span className="block">Expressive</span>
-            <span className="block">Brands</span>
-          </p>
-          <div className="mt-6 flex items-center gap-4">
-            <span className="h-px w-16 bg-brown/24" />
-            <span className="font-serif text-3xl italic leading-none text-brown/42">↝</span>
-          </div>
-          <p className="mt-5 max-w-[185px] text-[9px] font-semibold uppercase leading-5 tracking-[0.24em] text-brown/52">
-            Visual systems with editorial emotion
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="absolute right-[6%] top-[38%] z-10 hidden w-[245px] text-right text-brown lg:block xl:right-[8.5%]"
-          initial={{ opacity: 0, x: 34, y: 12 }}
-          animate={{ opacity: 1, x: 0, y: 0 }}
-          transition={{ duration: 1, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <p className="mb-5 text-[8px] font-bold uppercase tracking-[0.34em] text-red">Editorial Studio</p>
-          <p className="font-serif text-[1.65rem] font-medium uppercase leading-[0.98] tracking-[0.07em] xl:text-[2.15rem]">
-            Luxury
-            <span className="block">Visuals</span>
-            <span className="block">With Soul</span>
-          </p>
-          <div className="ml-auto mt-6 flex items-center justify-end gap-4">
-            <span className="font-serif text-3xl italic leading-none text-brown/42">↜</span>
-            <span className="h-px w-16 bg-brown/24" />
-          </div>
-          <p className="ml-auto mt-5 max-w-[175px] text-[9px] font-semibold uppercase leading-5 tracking-[0.24em] text-brown/52">
-            Cinematic direction for modern brands
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="absolute left-[31%] top-[56%] z-10 hidden font-serif text-4xl italic text-brown/24 xl:block"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0.18, 0.38, 0.18], y: [0, -8, 0] }}
-          transition={{ duration: 5.4, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
-        >
-          ⌁
-        </motion.div>
-        <motion.div
-          className="absolute right-[31%] top-[55%] z-10 hidden font-serif text-4xl italic text-brown/24 xl:block"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0.16, 0.34, 0.16], y: [0, 7, 0] }}
-          transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 1.35 }}
-        >
-          ⌁
-        </motion.div>
-
-        <motion.div
-          style={{ y: portraitY }}
-          className="absolute inset-x-0 bottom-[7vh] z-[5] mx-auto flex h-[72vh] max-w-[540px] items-end justify-center overflow-visible md:bottom-[2vh] md:h-[84vh] md:max-w-[880px] lg:bottom-[1vh] lg:h-[88vh] lg:max-w-[980px]"
-          initial={{ opacity: 0, y: 54, scale: 0.965, filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-          transition={{ duration: 1.15, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <picture className="contents">
-            <source srcSet={heroCutoutWebp} type="image/webp" />
-            <img
-              src={heroCutoutPng}
-              alt="Generated editorial portrait cutout of Arshmeet"
-              width="1023"
-              height="1537"
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
-              className="max-h-full w-auto max-w-[118%] scale-[1.08] object-contain object-bottom drop-shadow-[0_26px_38px_rgba(59,43,40,0.22)] md:max-w-[132%] md:scale-[1.15] lg:max-w-[138%] lg:scale-[1.2]"
-            />
-          </picture>
-        </motion.div>
-
-        <motion.div
-          className="absolute inset-x-0 bottom-0 z-[6] h-[16vh] bg-red"
-          initial={{ y: "100%" }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        />
-        <motion.div
-          className="absolute inset-x-0 bottom-[4.7vh] z-20 flex justify-center"
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.05, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <LuxuryButton dark>Work With Me</LuxuryButton>
-        </motion.div>
+      {/* Vertical wood panels background helper */}
+      <div className="absolute inset-0 flex justify-around pointer-events-none select-none z-0">
+        <div className="h-full w-px bg-black/20" />
+        <div className="h-full w-px bg-black/20" />
+        <div className="h-full w-px bg-black/20" />
+        <div className="h-full w-px bg-black/20" />
+        <div className="h-full w-px bg-black/20" />
       </div>
+
+      {/* Centered Transparent Cutout Image (Covering the center area, extending from bottom) */}
+      <motion.div 
+        style={{ y: imageY }}
+        className="relative z-10 w-full max-w-[850px] h-[82vh] md:h-[86vh] flex items-end justify-center overflow-visible pointer-events-none select-none"
+      >
+        <img
+          src={heroCutoutWebp}
+          alt="Arshmeet fashion editorial cutout"
+          className="max-h-full w-auto object-contain object-bottom drop-shadow-[0_24px_50px_rgba(0,0,0,0.65)] scale-[1.08] md:scale-[1.12]"
+        />
+        {/* Subtle shadow gradient overlay to blend bottom edge */}
+        <div className="absolute inset-x-0 bottom-0 h-[10vh] bg-gradient-to-t from-[#4A1812] to-transparent" />
+      </motion.div>
+
+
+      {/* Typography Overlay (Directly over left side, overlapping cutout) */}
+      <motion.div 
+        style={{ y: textY }}
+        className="absolute left-[5%] bottom-[18%] md:left-[8%] md:bottom-[22%] z-20 max-w-3xl text-left pointer-events-none select-none"
+        initial={{ opacity: 0, x: -25 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+      >
+        <h1 className="font-serif text-[clamp(2.4rem,7vw,6.4rem)] font-light leading-[0.92] tracking-tight text-cream filter drop-shadow-[0_4px_10px_rgba(0,0,0,0.4)]">
+          BUILD <span className="font-serif italic font-normal text-beige">the</span> LIFE &
+          <span className="block mt-2">BUSINESS YOU'VE BEEN</span>
+          <span className="pinyon-script-regular block mt-3.5 text-[0.88em] font-light lowercase text-beige/95 normal-case tracking-normal">Dreaming Of</span>
+        </h1>
+      </motion.div>
+
+      {/* Let's Work Together Action Button (Bottom-left overlay) */}
+      <motion.div
+        className="absolute left-[5%] bottom-[8%] md:left-[8%] md:bottom-[10%] z-30 pointer-events-auto"
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.4 }}
+      >
+        <a
+          href="https://instagram.com/arshdesigns.in"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex rounded-full bg-cream text-chocolate font-bold px-8 py-3.5 text-[9px] uppercase tracking-[0.24em] transition duration-300 hover:bg-beige hover:scale-[1.02] shadow-editorial"
+        >
+          Let's Work Together
+        </a>
+      </motion.div>
     </section>
   );
 }

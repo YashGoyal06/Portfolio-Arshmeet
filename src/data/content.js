@@ -1,4 +1,4 @@
-export const navItems = ["Home", "About", "Experience", "Services", "Process", "Contact"];
+export const navItems = ["Home", "About", "Designer", "Testimonials", "Portfolio", "Contact"];
 
 export const images = {
   hero:
@@ -21,79 +21,101 @@ export const images = {
     "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=90",
 };
 
-export const works = [
-  ["Maison Rue", "Brand Identity", images.workA, "md:col-span-7"],
-  ["Velvet Archive", "Creative Direction", images.workB, "md:col-span-5 md:mt-24"],
-  ["Noor Studio", "Visual System", images.workC, "md:col-span-5"],
-  ["Aster Edit", "Editorial Campaign", images.workD, "md:col-span-7 md:-mt-20"],
-];
-
-export const services = [
-  ["Brand Identity", "Distinctive identity systems with marks, typography, palettes, and brand-world rules."],
-  ["Creative Direction", "Campaign mood, image language, art direction, and visual storytelling for launches."],
-  ["Visual Design", "Editorial layouts, social systems, decks, packaging moments, and refined digital assets."],
-];
-
-export const processSteps = [
-  ["Discovery", "Clarify the feeling, audience, visual references, and brand ambition."],
-  ["Direction", "Build the creative concept, art direction, and editorial mood system."],
-  ["Design", "Create identity, layouts, visuals, and refined brand applications."],
-  ["Launch", "Package the final system for confident rollout across every touchpoint."],
-];
-
-export const experienceItems = [
-  ["2026", "Independent Graphic Designer", "Luxury identity systems, editorial campaigns, and brand visuals."],
-  ["2025", "Creative Direction", "Visual worlds for fashion, beauty, lifestyle, and boutique founders."],
-  ["2024", "Editorial Design", "Magazine-inspired layouts, social suites, decks, and launch systems."],
-];
-
-export const brandWorks = [
+export const projects = [
   {
-    name: "Maison Rue",
-    category: "Luxury Fashion Identity",
+    id: "erabeauty",
+    number: "01",
+    name: "Erabeauty",
+    category: "Luxury Cosmetics Identity",
     year: "2026",
-    accent: "#8B2A24",
-    image: images.workA,
-    mood: "cinematic, warm, editorial",
-    brief: "A fashion-led identity system with campaign layouts, visual language, and launch assets.",
-    deliverables: ["Logo suite", "Editorial grid", "Campaign art direction", "Social launch system"],
+    accent: "#6A241B",
+    image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=90",
+    brief: "A high-end organic beauty label centered on minimalist packaging, warm tungsten typography, and editorial campaign guidelines.",
+    deliverables: ["Visual Identity", "Packaging Design", "Editorial Lookbook", "Creative Direction"],
     media: [
-      { type: "graphic", title: "Campaign Poster", image: images.workA, ratio: "portrait" },
-      { type: "video", title: "Launch Reel", image: images.workB, duration: "00:18" },
-      { type: "graphic", title: "Social Story Set", image: images.workC, ratio: "story" },
-      { type: "video", title: "Mood Film", image: images.workD, duration: "00:11" },
-    ],
+      "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80"
+    ]
   },
   {
-    name: "Noor Studio",
-    category: "Beauty Brand System",
-    year: "2025",
-    accent: "#A76B5B",
-    image: images.workC,
-    mood: "soft, refined, intimate",
-    brief: "A minimal beauty identity shaped around muted warmth, elegant typography, and tactile brand moments.",
-    deliverables: ["Brand palette", "Packaging direction", "Typography system", "Instagram templates"],
+    id: "the-oven-artist",
+    number: "02",
+    name: "The Oven Artist",
+    category: "Artisanal Bakery Brand System",
+    year: "2026",
+    accent: "#5A1E16",
+    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=90",
+    brief: "A sensory branding program for a boutique artisan baker, blending hand-drawn heritage marks with luxury modern packaging systems.",
+    deliverables: ["Heritage Mark System", "Packaging Suites", "Digital Brand World", "Collateral Design"],
     media: [
-      { type: "graphic", title: "Packaging Direction", image: images.workC, ratio: "landscape" },
-      { type: "video", title: "Texture Reel", image: images.aboutStrip, duration: "00:09" },
-      { type: "graphic", title: "Palette Cards", image: images.aboutSmall, ratio: "square" },
-      { type: "graphic", title: "Launch Grid", image: images.workA, ratio: "story" },
-    ],
+      "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80"
+    ]
   },
   {
-    name: "Velvet Archive",
-    category: "Editorial Campaign",
+    id: "looks",
+    number: "03",
+    name: "Looks",
+    category: "High-Fashion Styling Agency",
     year: "2025",
-    accent: "#4A1414",
-    image: images.workB,
-    mood: "moody, archival, fashion",
-    brief: "A campaign concept for a boutique label with magazine-style imagery, art direction, and story-led assets.",
-    deliverables: ["Campaign concept", "Lookbook layouts", "Poster system", "Digital launch visuals"],
+    accent: "#4A1812",
+    image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=90",
+    brief: "A high-fashion brand campaign lookbook, structured on high-contrast serif formatting, layered visual cards, and dramatic film grain textures.",
+    deliverables: ["Visual Direction", "Agency Lookbook", "Social Grid Systems", "Production Styling Guidelines"],
     media: [
-      { type: "video", title: "Editorial Teaser", image: images.workB, duration: "00:15" },
-      { type: "graphic", title: "Lookbook Spread", image: images.workD, ratio: "landscape" },
-      { type: "graphic", title: "Poster System", image: images.workA, ratio: "portrait" },
-      { type: "video", title: "Behind The Mood", image: images.testimonial, duration: "00:22" },
-    ],
+      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=600&q=80"
+    ]
   },
+  {
+    id: "social-noiz",
+    number: "04",
+    name: "Social Noiz",
+    category: "Creative Sound & Content Agency",
+    year: "2025",
+    accent: "#2B1A14",
+    image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=90",
+    brief: "An expressive visual suite for an experimental sound branding agency, emphasizing industrial grids, vintage print textures, and modern editorial spacing.",
+    deliverables: ["Logomark suite", "Editorial grid system", "Social campaign layout", "Vinyl collateral print"],
+    media: [
+      "https://images.unsplash.com/photo-1484755560693-a4074577af3a?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600&q=80"
+    ]
+  },
+  {
+    id: "fitii",
+    number: "05",
+    name: "Fitii",
+    category: "Expressive Wellness Brand",
+    year: "2025",
+    accent: "#6A241B",
+    image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=90",
+    brief: "A refined brand direction for a premium holistic fitness studio, building a quiet luxury atmosphere, muted color palettes, and structured typography layouts.",
+    deliverables: ["Studio brand world", "Visual typography guidelines", "Merchandise design", "Signage and space direction"],
+    media: [
+      "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80"
+    ]
+  },
+  {
+    id: "maison-rue",
+    number: "06",
+    name: "Maison Rue",
+    category: "Editorial Fashion Label",
+    year: "2026",
+    accent: "#6A241B",
+    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=90",
+    brief: "An avant-garde editorial campaign and packaging suite for a luxury Parisian fashion house, designed with rich creative layouts.",
+    deliverables: ["Lookbook Layouts", "Retail Packaging", "Campaign Art Direction", "Digital Direction"],
+    media: [
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=600&q=80"
+    ]
+  }
 ];
+
+export const brandWorks = projects;
+export const works = [];
+export const services = [];
+export const processSteps = [];
+export const experienceItems = [];

@@ -1,43 +1,36 @@
-import { motion } from "framer-motion";
+import Reveal from "./Reveal.jsx";
 
-const logos = ["Behance", "Dribbble", "Awwwards", "Forbes", "Creative Boom", "Vogue"];
+const brands = ["Erabeauty", "The Oven Artist", "Looks", "Social Noiz", "Fitii"];
 
 export default function Featured() {
   return (
-    <section className="relative overflow-hidden border-y border-brown/10 bg-soft py-8 text-brown">
-      <motion.div
-        className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-soft to-transparent z-10"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      />
-      <motion.div
-        className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-soft to-transparent z-10"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      />
-      <motion.div
-        className="mx-auto mb-5 flex max-w-[1180px] items-center justify-center px-6"
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.6 }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      >
-        <span className="text-[10px] uppercase tracking-[0.32em] text-brown/55">Featured in</span>
-      </motion.div>
-      <div className="featured-marquee flex whitespace-nowrap">
-        {[...logos, ...logos].map((logo, index) => (
-          <motion.span
-            key={`${logo}-${index}`}
-            className="mx-8 inline-flex items-center gap-8 font-serif text-2xl font-semibold tracking-tight text-brown md:text-3xl"
-            whileHover={{ y: -4, color: "#6A1F1A" }}
-            transition={{ duration: 0.35 }}
-          >
-            {logo}
-            <span className="font-serif text-2xl italic text-red/35">⌁</span>
-          </motion.span>
-        ))}
+    <section className="relative bg-cream py-14 text-ink border-y border-brown/15">
+      <div className="grain opacity-20" />
+      <div className="mx-auto max-w-[1260px] px-6 text-center">
+        {/* Strip Header */}
+        <Reveal className="mb-8">
+          <p className="text-[9px] font-bold uppercase tracking-[0.32em] text-brown/60">
+            Selected Collaborations & Brand Work
+          </p>
+        </Reveal>
+
+        {/* Brands List */}
+        <Reveal delay={0.1}>
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 md:gap-x-14">
+            {brands.map((brand, index) => (
+              <div key={brand} className="flex items-center">
+                <span className="font-serif text-xl font-light tracking-[0.06em] text-red transition duration-300 hover:text-brown md:text-2xl">
+                  {brand}
+                </span>
+                {index < brands.length - 1 && (
+                  <span className="ml-8 text-amber-900/25 font-light text-xl md:ml-14 select-none">
+                    /
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
