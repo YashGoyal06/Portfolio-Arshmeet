@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Reveal from "./Reveal.jsx";
+import vintageTelephone from "../assets/vintage-telephone.png";
 
 export default function Intro() {
   return (
@@ -7,46 +8,23 @@ export default function Intro() {
       <div className="grain opacity-30" />
       
       {/* 3-Column Horizontal Row on Desktop, Stacked on Mobile */}
-      <div className="mx-auto max-w-[1260px] grid items-center gap-12 md:grid-cols-[1fr_2fr_1fr] relative z-10">
+      <div className="mx-auto max-w-[1040px] grid gap-6 md:gap-8 md:grid-cols-[1fr_2.8fr_1fr] items-stretch relative z-10">
         
-        {/* Left Column: Vintage Telephone Vector */}
-        <div className="flex justify-center md:justify-start">
+        {/* Left Column: Enhanced Vintage Telephone Image - Aligned to side of "BUILD" */}
+        <div className="flex justify-center md:justify-end items-start pt-2 md:pt-2 md:-mr-4 md:-mt-8">
           <Reveal>
-            <svg 
-              className="text-red/80 filter drop-shadow-sm transition-transform duration-300 hover:rotate-3" 
-              width="100" 
-              height="100" 
-              viewBox="0 0 100 100" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="1.2"
-            >
-              {/* Telephone base */}
-              <path d="M25 65 C 25 50, 75 50, 75 65 C 75 82, 25 82, 25 65 Z" strokeLinejoin="round" />
-              {/* Rotary Dial */}
-              <circle cx="50" cy="66" r="10" />
-              <circle cx="50" cy="66" r="3" fill="currentColor" />
-              {/* Dial holes */}
-              <circle cx="50" cy="59" r="1.5" fill="currentColor" />
-              <circle cx="57" cy="62" r="1.5" fill="currentColor" />
-              <circle cx="57" cy="69" r="1.5" fill="currentColor" />
-              <circle cx="50" cy="73" r="1.5" fill="currentColor" />
-              <circle cx="43" cy="70" r="1.5" fill="currentColor" />
-              <circle cx="43" cy="62" r="1.5" fill="currentColor" />
-              {/* Receiver cradle */}
-              <path d="M42 50 L 42 44 M 58 44 L 58 50" />
-              <path d="M37 44 L 47 44 M 53 44 L 63 44" />
-              {/* Receiver handle */}
-              <path d="M22 36 C 32 28, 68 28, 78 36" strokeWidth="1.8" />
-              <path d="M18 32 L 26 39 M 74 39 L 82 32" strokeWidth="1.8" />
-              {/* Cord */}
-              <path d="M23 72 C 14 75, 12 69, 14 61" strokeWidth="0.8" strokeDasharray="3,3" />
-            </svg>
+            <motion.img 
+              src={vintageTelephone} 
+              alt="Vintage rotary telephone" 
+              className="w-32 sm:w-36 md:w-40 h-auto object-contain filter drop-shadow-md select-none rotate-[-12deg]"
+              whileHover={{ scale: 1.05, rotate: -8 }}
+              transition={{ duration: 0.3 }}
+            />
           </Reveal>
         </div>
 
         {/* Center Column: Centered Luxury Typography & Script */}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center justify-center">
           <Reveal delay={0.1}>
             <h2 className="font-serif text-[clamp(1.8rem,5vw,4.2rem)] font-light leading-[1.04] tracking-tight text-red max-w-2xl">
               BUILD A 6-Figure BUSINESS IN 90 Days <span className="font-serif italic font-normal text-amber-900/60 block md:inline">– WITHOUT BURNOUT</span>
@@ -66,11 +44,11 @@ export default function Intro() {
           </Reveal>
         </div>
 
-        {/* Right Column: Decorative Vinyl Record */}
-        <div className="flex justify-center md:justify-end">
+        {/* Right Column: Decorative Vinyl Record - Aligned to Bottom-Right */}
+        <div className="flex justify-center md:justify-end items-end pb-6 md:pb-12 md:self-end">
           <Reveal delay={0.4}>
             <motion.div
-              className="relative h-36 w-36 rounded-full bg-chocolate border-[4px] border-beige flex items-center justify-center shadow-editorial"
+              className="relative h-28 w-28 md:h-32 md:w-32 rounded-full bg-chocolate border-[4px] border-beige flex items-center justify-center shadow-editorial"
               animate={{ rotate: 360 }}
               transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
               whileHover={{ scale: 1.05 }}

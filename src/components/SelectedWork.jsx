@@ -90,13 +90,13 @@ export default function SelectedWork({ activeProject, setActiveProject }) {
                   >
                     {/* Folder Shape Container with 3D perspective */}
                     <div className="relative w-full aspect-[1.38] max-w-[310px] mb-4 [perspective:1000px]">
-                      {/* Back Flap + Tab (Static Background) */}
-                      <div className="absolute inset-0 rounded-b-xl rounded-tr-xl bg-[#DECDB8] border border-brown/15 shadow-[0_4px_12px_rgba(43,26,20,0.04)]">
+                      {/* Back Flap + Tab (Static Background) - Burgundy Deep */}
+                      <div className="absolute inset-0 rounded-b-xl rounded-tr-xl bg-[#3B130E] border border-black/20 shadow-[0_4px_12px_rgba(43,26,20,0.12)]">
                         {/* Manila Folder Tab */}
-                        <div className="absolute left-0 -top-3.5 h-[16px] w-[84px] rounded-t-lg bg-[#DECDB8] border-t border-x border-brown/15" />
+                        <div className="absolute left-0 -top-3.5 h-[16px] w-[84px] rounded-t-lg bg-[#3B130E] border-t border-x border-black/20" />
                         
                         {/* Archive Index Label inside Back Flap (visible when folder opens) */}
-                        <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-brown/30 text-[6px] font-bold uppercase tracking-widest border-t border-brown/8 pt-2.5">
+                        <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-beige/25 text-[6px] font-bold uppercase tracking-widest border-t border-beige/10 pt-2.5">
                           <span>CASE NO. {project.number}</span>
                           <span>{project.year}</span>
                         </div>
@@ -130,24 +130,24 @@ export default function SelectedWork({ activeProject, setActiveProject }) {
                         </div>
                       </div>
 
-                      {/* Front Flap (Front Face that tilts open in 3D) */}
+                      {/* Front Flap (Front Face that tilts open in 3D) - Burgundy Main */}
                       <div 
-                        className="absolute inset-0 rounded-b-xl rounded-tr-xl bg-[#EADCC9] border border-brown/12 shadow-[0_8px_20px_rgba(43,26,20,0.06)] flex flex-col justify-between p-5 transition-all duration-500 ease-out origin-bottom group-hover:[transform:rotateX(-14deg)_translateY(4px)] group-hover:bg-[#E4D5C2] group-hover:shadow-[0_15px_30px_rgba(43,26,20,0.12)] z-10"
+                        className="absolute inset-0 rounded-b-xl rounded-tr-xl bg-[#4A1812] border border-black/20 shadow-[0_8px_20px_rgba(43,26,20,0.15)] flex flex-col justify-between p-5 transition-all duration-500 ease-out origin-bottom group-hover:[transform:rotateX(-14deg)_translateY(4px)] group-hover:bg-[#5C1F17] group-hover:shadow-[0_15px_30px_rgba(43,26,20,0.22)] z-10"
                       >
                         {/* Faux paper outline on front flap inner rim */}
-                        <div className="absolute top-2.5 left-3 right-3 h-[2px] rounded bg-cream/40 opacity-80" />
+                        <div className="absolute top-2.5 left-3 right-3 h-[2px] rounded bg-[#5C1F17]/40 opacity-80" />
                         
                         {/* Monogram in center */}
                         <div className="my-auto flex items-center justify-center">
-                          <span className="font-serif text-[36px] font-light text-brown/20 uppercase select-none tracking-normal">
+                          <span className="font-serif text-[36px] font-light text-beige/15 uppercase select-none tracking-normal">
                             {project.name}
                           </span>
                         </div>
 
                         {/* Front Flap Bottom bar */}
-                        <div className="flex items-center justify-between text-brown/40 text-[6.5px] font-bold uppercase tracking-widest mt-auto border-t border-brown/6 pt-2.5">
+                        <div className="flex items-center justify-between text-beige/40 text-[6.5px] font-bold uppercase tracking-widest mt-auto border-t border-beige/10 pt-2.5">
                           <span>ARCHIVE CLASSIFIED</span>
-                          <span className="font-serif italic font-normal text-[8px] text-red/60 lowercase tracking-normal">view file</span>
+                          <span className="font-serif italic font-normal text-[8px] text-beige/75 lowercase tracking-normal">view file</span>
                         </div>
                       </div>
                     </div>

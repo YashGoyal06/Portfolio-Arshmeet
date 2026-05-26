@@ -14,23 +14,26 @@ export default function AboutCollage() {
   const imageScale = useTransform(scrollY, [300, 1800], [1.1, 1.0]);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#5A1E16] via-[#4A1812] to-[#2B1A14] px-6 py-24 text-soft md:py-32" id="designer">
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#5A1E16] via-[#4A1812] to-[#2B1A14] px-6 py-20 md:py-28 flex items-center justify-center text-soft" id="designer">
       <div className="grain opacity-25" />
       
       {/* Split Grid Layout: Photos on Left, About Text on Right */}
-      <div className="mx-auto max-w-[1260px] grid md:grid-cols-[1.1fr_0.9fr] gap-12 md:gap-16 items-center text-left relative z-10">
+      <div className="mx-auto w-full max-w-[1260px] grid md:grid-cols-[1.1fr_0.9fr] gap-12 md:gap-16 items-center text-left relative z-10">
         
-        {/* Left Column: Overlapping Polaroid & Film Strip */}
-        <Reveal className="relative w-full max-w-[420px] sm:max-w-[480px] h-[95vw] sm:h-[450px] md:h-[520px] select-none mx-auto md:mx-0">
-          {/* Main Polaroid Frame (Square Photo, Taped at Top) */}
+        {/* Left Column: Overlapping Polaroid & Film Strip - Expanded to fill screen height */}
+        <Reveal className="relative w-full max-w-[440px] sm:max-w-[500px] h-[105vw] sm:h-[520px] md:h-[620px] select-none mx-auto md:mx-0">
+          {/* Main Polaroid Frame (Square Photo, Taped at Top) - Now in Foreground (z-20) */}
           <motion.div 
-            style={{ y: polaroid1Y }}
-            className="absolute left-0 top-12 w-[68%] -rotate-[5deg] bg-[#FAF8F5] p-3.5 pb-12 shadow-polaroid border border-black/5 z-10"
-            whileHover={{ rotate: -2, zIndex: 30, scale: 1.02 }}
+            style={{ y: polaroid1Y, rotate: -10 }}
+            className="absolute left-0 top-12 w-[68%] bg-[#FAF8F5] p-3.5 pb-12 shadow-polaroid border border-black/5 z-20"
+            whileHover={{ rotate: -4, zIndex: 30, scale: 1.02 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
             {/* Matte Tape Effect */}
-            <div className="absolute -top-3 left-[28%] h-6.5 w-24 bg-beige/35 backdrop-blur-[1px] rotate-[1deg] shadow-[0_2px_4px_rgba(0,0,0,0.05)] border-t border-b border-cream/20" />
+            <div 
+              style={{ transform: "rotate(1deg)" }}
+              className="absolute -top-3 left-[28%] h-6.5 w-24 bg-beige/35 backdrop-blur-[1px] shadow-[0_2px_4px_rgba(0,0,0,0.05)] border-t border-b border-cream/20" 
+            />
             <div className="overflow-hidden w-full aspect-[1/1] rounded-sm">
               <motion.img 
                 style={{ scale: imageScale }}
@@ -42,15 +45,18 @@ export default function AboutCollage() {
             <div className="pinyon-script-regular text-center mt-3 text-red/60 text-2xl leading-none">arshmeet</div>
           </motion.div>
 
-          {/* Overlapped Triple Photo Strip Frame (Tilted on top) */}
+          {/* Overlapped Triple Photo Strip Frame (Tilted on top) - Now in Background (z-10) */}
           <motion.div 
-            style={{ y: polaroid2Y }}
-            className="absolute right-0 top-4 w-[43%] rotate-[10deg] bg-[#FAF8F5] p-2.5 pb-8 shadow-polaroid border border-black/5 z-20 flex flex-col gap-2"
-            whileHover={{ rotate: 5, zIndex: 30, scale: 1.02 }}
+            style={{ y: polaroid2Y, rotate: 14 }}
+            className="absolute right-0 top-4 w-[43%] bg-[#FAF8F5] p-2.5 pb-8 shadow-polaroid border border-black/5 z-10 flex flex-col gap-2"
+            whileHover={{ rotate: 8, zIndex: 30, scale: 1.02 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
             {/* Matte Tape Effect */}
-            <div className="absolute -top-3 right-[20%] h-6 w-16 bg-beige/35 backdrop-blur-[1px] -rotate-[3deg] shadow-[0_2px_4px_rgba(0,0,0,0.05)] border-t border-b border-cream/20" />
+            <div 
+              style={{ transform: "rotate(-3deg)" }}
+              className="absolute -top-3 right-[20%] h-6 w-16 bg-beige/35 backdrop-blur-[1px] shadow-[0_2px_4px_rgba(0,0,0,0.05)] border-t border-b border-cream/20" 
+            />
             
             {/* 3 booth-style vertical images with slight inner overflow container */}
             <div className="overflow-hidden w-full aspect-[4/5] rounded-sm">
