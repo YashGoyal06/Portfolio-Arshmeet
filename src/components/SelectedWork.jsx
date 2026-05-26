@@ -37,24 +37,25 @@ export default function SelectedWork({ activeProject, setActiveProject }) {
           </div>
 
           {/* Search Bar & Switcher */}
-          <div className="flex flex-wrap items-center gap-4">
+          {/* Search Bar & Switcher */}
+          <div className="flex w-full flex-col sm:flex-row sm:w-auto items-stretch sm:items-center gap-3">
             {/* Search Input */}
-            <div className="relative flex items-center">
+            <div className="relative flex items-center flex-1 sm:flex-none">
               <Search size={14} className="absolute left-3.5 text-brown/45" />
               <input
                 type="text"
                 placeholder="Search case files..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="rounded-full border border-brown/15 bg-cream/50 pl-9 pr-4 py-2 text-[10px] uppercase font-bold tracking-widest text-chocolate placeholder-brown/45 focus:border-red focus:outline-none w-[200px] transition-colors"
+                className="w-full sm:w-[220px] rounded-full border border-brown/15 bg-cream/50 pl-9 pr-4 py-2.5 sm:py-2 text-[10px] uppercase font-bold tracking-widest text-chocolate placeholder-brown/45 focus:border-red focus:outline-none transition-colors"
               />
             </div>
             {/* View Mode Toggle */}
-            <div className="flex rounded-full border border-brown/15 bg-cream/35 p-1 select-none">
+            <div className="flex justify-center rounded-full border border-brown/15 bg-cream/35 p-1 select-none self-center sm:self-auto">
               <button
                 type="button"
                 onClick={() => setViewMode("grid")}
-                className={`grid h-7 w-7 place-items-center rounded-full transition-colors ${
+                className={`grid h-8 w-8 sm:h-7 sm:w-7 place-items-center rounded-full transition-colors ${
                   viewMode === "grid" ? "bg-red text-cream" : "text-brown/60 hover:text-chocolate"
                 }`}
                 aria-label="Grid view"
@@ -64,7 +65,7 @@ export default function SelectedWork({ activeProject, setActiveProject }) {
               <button
                 type="button"
                 onClick={() => setViewMode("list")}
-                className={`grid h-7 w-7 place-items-center rounded-full transition-colors ${
+                className={`grid h-8 w-8 sm:h-7 sm:w-7 place-items-center rounded-full transition-colors ${
                   viewMode === "list" ? "bg-red text-cream" : "text-brown/60 hover:text-chocolate"
                 }`}
                 aria-label="List view"
@@ -87,27 +88,66 @@ export default function SelectedWork({ activeProject, setActiveProject }) {
                     onClick={() => setActiveProject(project)}
                     className="group relative flex flex-col items-center w-full focus:outline-none"
                   >
-                    {/* Folder Shape Container */}
-                    <div className="relative w-full aspect-[1.38] max-w-[310px] mb-4">
-                      {/* Manila Folder Tab */}
-                      <div className="absolute left-0 -top-3.5 h-[16px] w-[84px] rounded-t-lg bg-[#E2D2BC] border-t border-x border-brown/12 group-hover:bg-[#D4C3AC] transition-colors duration-300" />
-                      {/* Manila Folder Body */}
-                      <div className="relative w-full h-full rounded-b-xl rounded-tr-xl bg-[#EADCC9] border border-brown/12 shadow-[0_8px_24px_rgba(43,26,20,0.06)] group-hover:bg-[#E2D2BC] group-hover:shadow-[0_12px_32px_rgba(43,26,20,0.12)] transition-all duration-300 flex flex-col justify-between p-5 overflow-hidden">
-                        {/* Subtle inner lines representing document edges inside folder */}
-                        <div className="absolute top-2.5 left-3 right-3 h-[2px] rounded bg-cream/40 opacity-80" />
-                        <div className="absolute top-4.5 left-3 right-5 h-[1.5px] rounded bg-cream/30 opacity-70" />
+                    {/* Folder Shape Container with 3D perspective */}
+                    <div className="relative w-full aspect-[1.38] max-w-[310px] mb-4 [perspective:1000px]">
+                      {/* Back Flap + Tab (Static Background) */}
+                      <div className="absolute inset-0 rounded-b-xl rounded-tr-xl bg-[#DECDB8] border border-brown/15 shadow-[0_4px_12px_rgba(43,26,20,0.04)]">
+                        {/* Manila Folder Tab */}
+                        <div className="absolute left-0 -top-3.5 h-[16px] w-[84px] rounded-t-lg bg-[#DECDB8] border-t border-x border-brown/15" />
+                        
+                        {/* Archive Index Label inside Back Flap (visible when folder opens) */}
+                        <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-brown/30 text-[6px] font-bold uppercase tracking-widest border-t border-brown/8 pt-2.5">
+                          <span>CASE NO. {project.number}</span>
+                          <span>{project.year}</span>
+                        </div>
+                      </div>
 
-                        {/* Monogram in center (Faint classic letter) */}
-                        <div className="my-auto flex items-center justify-center">
-                          <span className="font-serif text-[42px] font-light text-brown/10 uppercase select-none tracking-normal">
+                      {/* Rising Paper Sheet (Middle Layer) */}
+                      <div 
+                        className="absolute inset-x-2.5 top-1 bottom-4 bg-[#FDFCFA] rounded-md border border-brown/8 shadow-sm p-4 flex flex-col justify-between transition-all duration-500 ease-out group-hover:-translate-y-8 group-hover:rotate-[-1.5deg] group-hover:shadow-[0_12px_24px_rgba(43,26,20,0.15)]"
+                      >
+                        {/* Mini Editorial Grid on the document sheet */}
+                        <div className="flex justify-between items-start">
+                          <span className="font-serif text-[18px] font-semibold text-red/60 uppercase tracking-tighter">
                             {project.name[0]}
+                          </span>
+                          <span className="text-[5.5px] font-mono tracking-widest text-brown/40 border border-brown/15 px-1 py-0.5 rounded uppercase">
+                            ACTIVE FILE
+                          </span>
+                        </div>
+                        
+                        {/* Faux lines simulating printed case brief */}
+                        <div className="my-3 flex flex-col gap-1.5 w-full">
+                          <div className="h-[2px] w-[90%] bg-brown/8" />
+                          <div className="h-[2px] w-[75%] bg-brown/8" />
+                          <div className="h-[2px] w-[80%] bg-brown/8" />
+                          <div className="h-[2px] w-[50%] bg-brown/8" />
+                        </div>
+                        
+                        <div className="flex items-center justify-between text-[5px] font-bold uppercase tracking-wider text-brown/50">
+                          <span>BRAND DEPT.</span>
+                          <span>STRICTLY PRIVATE</span>
+                        </div>
+                      </div>
+
+                      {/* Front Flap (Front Face that tilts open in 3D) */}
+                      <div 
+                        className="absolute inset-0 rounded-b-xl rounded-tr-xl bg-[#EADCC9] border border-brown/12 shadow-[0_8px_20px_rgba(43,26,20,0.06)] flex flex-col justify-between p-5 transition-all duration-500 ease-out origin-bottom group-hover:[transform:rotateX(-14deg)_translateY(4px)] group-hover:bg-[#E4D5C2] group-hover:shadow-[0_15px_30px_rgba(43,26,20,0.12)] z-10"
+                      >
+                        {/* Faux paper outline on front flap inner rim */}
+                        <div className="absolute top-2.5 left-3 right-3 h-[2px] rounded bg-cream/40 opacity-80" />
+                        
+                        {/* Monogram in center */}
+                        <div className="my-auto flex items-center justify-center">
+                          <span className="font-serif text-[36px] font-light text-brown/20 uppercase select-none tracking-normal">
+                            {project.name}
                           </span>
                         </div>
 
-                        {/* Archive Index Label */}
-                        <div className="flex items-center justify-between text-brown/35 text-[6px] font-bold uppercase tracking-widest mt-auto border-t border-brown/5 pt-2.5">
-                          <span>CASE NO. {project.number}</span>
-                          <span>{project.year}</span>
+                        {/* Front Flap Bottom bar */}
+                        <div className="flex items-center justify-between text-brown/40 text-[6.5px] font-bold uppercase tracking-widest mt-auto border-t border-brown/6 pt-2.5">
+                          <span>ARCHIVE CLASSIFIED</span>
+                          <span className="font-serif italic font-normal text-[8px] text-red/60 lowercase tracking-normal">view file</span>
                         </div>
                       </div>
                     </div>

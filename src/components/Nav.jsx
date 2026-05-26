@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { projects, navItems } from "../data/content.js";
+import Magnetic from "./Magnetic.jsx";
 
 export default function Nav({ setActiveProject }) {
   const [open, setOpen] = useState(false);
@@ -46,13 +47,15 @@ export default function Nav({ setActiveProject }) {
 
           <div className="hidden items-center gap-2 md:flex">
             <div className="group relative">
-              <a
-                href="#projects"
-                onClick={handleBrandWorksClick}
-                className="rounded-full bg-soft px-4 py-2 text-[9px] font-bold uppercase tracking-[0.18em] text-burgundy transition hover:bg-beige md:px-5"
-              >
-                Brand Works
-              </a>
+              <Magnetic strength={0.2}>
+                <a
+                  href="#projects"
+                  onClick={handleBrandWorksClick}
+                  className="rounded-full bg-soft px-4 py-2 text-[9px] font-bold uppercase tracking-[0.18em] text-burgundy transition hover:bg-beige md:px-5 inline-block"
+                >
+                  Brand Works
+                </a>
+              </Magnetic>
               <div className="invisible absolute right-0 top-full z-50 w-80 pt-3 opacity-0 transition duration-300 group-hover:visible group-hover:opacity-100">
                 <motion.div
                   className="overflow-hidden rounded-tl-[1.75rem] rounded-tr-md border border-brown/14 bg-cream p-2 text-brown shadow-editorial"
